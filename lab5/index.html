@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ферми</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Керування Фермами</h1>
+        <nav>
+            <a href="#" id="viewListBtn">Список ферм</a>
+            <a href="#" id="viewCreateBtn">Додати ферму</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInputHeader" placeholder="Введіть місто...">
+            <button id="searchBtnHeader">Пошук</button>
+        </div>
+    </header>
+
+    <main id="listView">
+        <aside class="controls-panel">
+            <h2>Управління</h2>
+            
+            <div class="control-group">
+                <label for="sortSelect">Сортувати за:</label>
+                <select id="sortSelect">
+                    <option value="location">Місцезнаходженням</option>
+                    <option value="animals">Кількістю тварин</option>
+                    <option value="power">Потужністю вентиляторів</option>
+                </select>
+                <button id="sortBtn">Сортувати</button>
+            </div>
+            
+            <hr>
+            
+            <button id="addFarmBtn" class="primary-btn" style="margin-top: 20px;">Додати нову ферму</button>
+            
+            <hr>
+
+            <h3>Загальні витрати</h3>
+            <p class="total-label">Сума потужності:</p>
+            <p id="totalPower" class="total-result"></p>
+        </aside>
+
+        <section class="cards-container" id="cardsContainer"></section>
+    </main>
+
+    <section id="formView" style="display: none; padding: 40px; width: 60%; margin: 20px auto; background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px;">
+        <h2 id="formTitle">Створити нову ферму</h2>
+        <form id="farmForm">
+            <input type="hidden" id="farmId">
+            
+            <label for="location">Місцезнаходження:</label>
+            <input type="text" id="location" required minlength="2" placeholder="Наприклад, Львів">
+            
+            <label for="animals">Кількість тварин:</label>
+            <input type="number" id="animals" required min="1" max="1000" placeholder="Кількість від 1 до 1000">
+            
+            <label for="power">Потужність вентиляторів (Вт):</label>
+            <input type="number" id="power" required min="100" placeholder="Потужність > 100 Вт">
+            
+            <label for="description">Опис:</label>
+            <textarea id="description" rows="4"></textarea>
+
+            <button type="submit" id="submitFormBtn" class="primary-btn" style="width: auto;">Зберегти</button>
+            <button type="button" id="cancelFormBtn" class="edit-btn" style="width: auto;">Скасувати та повернутися</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
